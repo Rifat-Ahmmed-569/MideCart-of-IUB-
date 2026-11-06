@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MediCart</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+  <header>
+    <h1>MediCart</h1>
+    <span class="conn"><i id="dot"></i><span id="connText">Connecting</span></span>
+  </header>
+
+  <div id="banner" class="banner stopped">
+    <b id="bannerTitle">STOPPED</b>
+    <span id="bannerText">Choose a mode to start.</span>
+  </div>
+
+  <main>
+    <section class="video">
+      <img src="{{ url_for('video_feed') }}" alt="Live camera">
+      <div class="stats">
+        <span>People <b id="people">0</b></span>
+        <span>Nearest <b id="nearest">-</b></span>
+        <span>FPS <b id="fps">0</b></span>
+        <span>Motors <b id="motors">0 / 0</b></span>
+        <span>Arduino <b id="serial">-</b></span>
+      </div>
+    </section>
+
+    <aside>
+      <div class="modes">
+        <button id="btnAuto" data-mode="auto">Autonomous</button>
+        <button id="btnManual" data-mode="manual">Manual</button>
+      </div>
+
+      <button id="stop" class="estop">EMERGENCY STOP <small>(Esc / Space)</small></button>
+
+      <div id="manualPanel" class="manual disabled">
+        <div class="pad">
+          <button data-key="up">&#8593;</button>
+          <button data-key="left">&#8592;</button>
+          <button data-key="down">&#8595;</button>
+          <button data-key="right">&#8594;</button>
+        </div>
+        <label>Speed <b id="speedVal">110</b>
+          <input id="speed" type="range" min="0" max="180" value="110">
+        </label>
+        <p class="hint">Keyboard: arrow keys (or W A S D). Release = stop.<br>
+        Human detection is OFF in manual mode.</p>
+      </div>
+    </aside>
+  </main>
+  <script src="{{ url_for('static', filename='dashboard.js') }}" defer></script>
+</body>
+</html>

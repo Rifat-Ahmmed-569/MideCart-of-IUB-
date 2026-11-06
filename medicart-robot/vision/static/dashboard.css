@@ -1,0 +1,34 @@
+*{box-sizing:border-box}
+body{margin:0;font:15px system-ui,sans-serif;background:#111518;color:#e8edf0}
+header{display:flex;justify-content:space-between;align-items:center;padding:10px 16px}
+h1{margin:0;font-size:20px;letter-spacing:.08em}
+.conn{display:flex;gap:6px;align-items:center;color:#9aa6ad}
+#dot{width:10px;height:10px;border-radius:50%;background:#e5484d}
+#dot.ok{background:#30c26a}
+.banner{margin:0 16px 12px;padding:14px 18px;border-radius:10px;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.banner b{font-size:22px}
+.banner.stopped{background:#5a1f22}
+.banner.auto{background:#14502e}
+.banner.paused{background:#6a4a10}
+.banner.manual{background:#173f66}
+main{display:grid;grid-template-columns:1fr 320px;gap:16px;padding:0 16px 16px}
+@media(max-width:850px){main{grid-template-columns:1fr}}
+.video img{width:100%;background:#000;border-radius:10px;display:block}
+.stats{display:flex;gap:18px;flex-wrap:wrap;padding:10px 4px;color:#9aa6ad}
+.stats b{color:#e8edf0}
+aside{display:flex;flex-direction:column;gap:14px}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+button{font:inherit;color:inherit;background:#222a30;border:2px solid #2f3a42;border-radius:10px;padding:14px;cursor:pointer}
+.modes button.active{border-color:#4aa3ff;background:#1b3550}
+.estop{background:#c0262d;border-color:#e5484d;font-weight:700;font-size:17px;padding:18px}
+.estop small{font-weight:400;opacity:.8}
+.manual{background:#1a2127;border-radius:10px;padding:14px}
+.manual.disabled{opacity:.4;pointer-events:none}
+.pad{display:grid;grid-template-columns:repeat(3,70px);grid-template-areas:". up ." "left down right";gap:8px;justify-content:center;margin-bottom:14px}
+.pad button{height:70px;font-size:28px;padding:0}
+.pad [data-key=up]{grid-area:up}.pad [data-key=left]{grid-area:left}
+.pad [data-key=down]{grid-area:down}.pad [data-key=right]{grid-area:right}
+.pad button.on{background:#4aa3ff;border-color:#9bccff;color:#001}
+label{display:block}
+input[type=range]{width:100%;margin-top:6px}
+.hint{color:#9aa6ad;font-size:13px;margin:10px 0 0}
